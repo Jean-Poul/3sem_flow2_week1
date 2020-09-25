@@ -30,6 +30,7 @@ https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/03_Thursday
 - (EER-Diagram added to show the relations made)
 
 ###### Friday: 
-- REST with JAX RS part 3 <br/>
-https://github.com/Jean-Poul/3sem_flow2_week1/tree/developer/02_Wednesday/rest-with-jax
+- REST with JAX RS part 3. Note the two branches <br/>
+https://github.com/Jean-Poul/3sem_flow2_week1/tree/developer/02_Wednesday/rest-with-jax <br/>
+https://github.com/Jean-Poul/3sem_flow2_week1/blob/master/02_Wednesday/rest-with-jax/README.md
 
