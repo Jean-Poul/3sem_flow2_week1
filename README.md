@@ -1,4 +1,4 @@
-# 3 semester, flow 2, 3review
+# 3 semester, flow 2, week 1
 -------------------------------------------------------------------------------------------------
 ### Overview
   - flow2 week1 tuesday exercise
