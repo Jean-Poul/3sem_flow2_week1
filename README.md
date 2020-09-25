@@ -7,8 +7,7 @@
   - flow2 week1 friday exercise
 -------------------------------------------------------------------------------------------------
 
-Every assignment has been made and working. It has to be said that i'm getting CORS error
-while trying to fetch a table of all movies in "Movie API part two" with JavaScript.
+Every assignment has been made and working. 
 
 ###### Monday: 
 - JPA relations
