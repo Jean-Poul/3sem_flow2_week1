@@ -26,6 +26,6 @@ https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/03_Thursday
 - (Comments missing)
 
 ###### Friday: 
-- Working with Postman <br/>
-LINK MISSING
+- REST with JAX RS part 3 <br/>
+https://github.com/Jean-Poul/3sem_flow2_week1/tree/developer/02_Wednesday/rest-with-jax
 - (Comments missing)
