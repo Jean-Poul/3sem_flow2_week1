@@ -26,7 +26,8 @@ https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/02_Wednesday/rest-with
 ###### Thursday: 
 - Working with Postman <br/>
 - EER-Diagram for relations <br/>
-https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/03_Thursday
+https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/03_Thursday <br/>
+- (Postman file added)
 - (EER-Diagram added to show the relations made)
 
 ###### Friday: 
