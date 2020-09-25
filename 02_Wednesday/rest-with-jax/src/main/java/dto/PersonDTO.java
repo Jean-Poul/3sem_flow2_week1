@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dto;
 
 import entities.Person;
@@ -10,7 +6,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 public class PersonDTO {
 
@@ -19,20 +15,41 @@ public class PersonDTO {
     private String lastName;
     private String phone;
 
+    private String street;
+    private String zip;
+    private String city;
+
     public PersonDTO() {
+    }
+
+//    public PersonDTO(Person p) {
+//        this.firstName = p.getFirstName();
+//        this.lastName = p.getLastName();
+//        this.phone = p.getPhone();
+//        this.id = p.getId();
+//    }
+    public PersonDTO(String fName, String lName, String phone) {
+        this.firstName = fName;
+        this.lastName = lName;
+        this.phone = phone;
     }
 
     public PersonDTO(Person p) {
         this.firstName = p.getFirstName();
         this.lastName = p.getLastName();
         this.phone = p.getPhone();
-        this.id = p.getId();
+        this.street = p.getAddress().getStreet();
+        this.zip = p.getAddress().getZip();
+        this.city = p.getAddress().getCity();
     }
 
-    public PersonDTO(String fName, String lName, String phone) {
-        this.firstName = fName;
-        this.lastName = lName;
+    public PersonDTO(String firstName, String lastName, String phone, String street, String zip, String city) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phone = phone;
+        this.street = street;
+        this.zip = zip;
+        this.city = city;
     }
 
     public long getId() {
@@ -65,6 +82,30 @@ public class PersonDTO {
 
     public String getPhone() {
         return phone;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @Override

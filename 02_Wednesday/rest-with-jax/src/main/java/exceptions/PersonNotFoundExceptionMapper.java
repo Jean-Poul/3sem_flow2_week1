@@ -17,7 +17,7 @@ import javax.ws.rs.ext.Provider;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 @Provider
 public class PersonNotFoundExceptionMapper implements ExceptionMapper<PersonNotFoundException> 

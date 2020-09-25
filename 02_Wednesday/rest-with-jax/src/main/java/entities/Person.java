@@ -2,17 +2,20 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 
 @Entity
@@ -24,6 +27,7 @@ public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "P_ID")
     private long id;
     private String firstName;
     private String lastName;
@@ -32,6 +36,9 @@ public class Person implements Serializable {
     private Date created;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date lastEdited; 
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 
     public Person() {
     }
@@ -91,6 +98,21 @@ public class Person implements Serializable {
     public void setLastEdited(Date lastEdited) {
         this.lastEdited = lastEdited;
     }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+        //Kan ikke sætte en address på noget der er null for så opstår en exception
+        //Ved at tage fat i Address klassen, som har en Person, der peger tilbage kan man sætte det til dette object med den tilhørende address
+        if (address != null) {
+            address.setPerson(this);
+        }
+    }
+    
+    
     
     
 }

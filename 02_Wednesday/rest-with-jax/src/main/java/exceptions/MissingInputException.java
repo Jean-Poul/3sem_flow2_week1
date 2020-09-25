@@ -7,7 +7,7 @@ package exceptions;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 public class MissingInputException extends Exception {
     public MissingInputException (String message) {

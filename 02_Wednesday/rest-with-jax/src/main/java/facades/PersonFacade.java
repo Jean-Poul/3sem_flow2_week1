@@ -15,7 +15,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 public class PersonFacade implements IPersonFacade {
 

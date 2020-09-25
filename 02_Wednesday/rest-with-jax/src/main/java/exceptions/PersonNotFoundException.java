@@ -7,7 +7,7 @@ package exceptions;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 public class PersonNotFoundException extends Exception{
     public PersonNotFoundException(String message) {
