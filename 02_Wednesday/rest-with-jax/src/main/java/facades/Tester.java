@@ -28,8 +28,9 @@ public class Tester {
         Address a3 = new Address("Silent hill", "666", "Scary place");
 
         p1.setAddress(a1);
-        p2.setAddress(a2);
+        p2.setAddress(a1);
         p3.setAddress(a3);
+
 
         try {
             em.getTransaction().begin();
@@ -40,7 +41,7 @@ public class Tester {
             em.getTransaction().commit();
             
             em.getTransaction().begin();
-            em.remove(p3);
+            em.remove(p1);
             em.getTransaction().commit();
         } finally {
             em.close();

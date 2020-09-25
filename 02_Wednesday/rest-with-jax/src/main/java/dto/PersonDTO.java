@@ -22,26 +22,27 @@ public class PersonDTO {
     public PersonDTO() {
     }
 
-//    public PersonDTO(Person p) {
-//        this.firstName = p.getFirstName();
-//        this.lastName = p.getLastName();
-//        this.phone = p.getPhone();
-//        this.id = p.getId();
-//    }
+    public PersonDTO(Person p) {
+        this.firstName = p.getFirstName();
+        this.lastName = p.getLastName();
+        this.phone = p.getPhone();
+        this.id = p.getId();
+    }
+    
     public PersonDTO(String fName, String lName, String phone) {
         this.firstName = fName;
         this.lastName = lName;
         this.phone = phone;
     }
 
-    public PersonDTO(Person p) {
-        this.firstName = p.getFirstName();
-        this.lastName = p.getLastName();
-        this.phone = p.getPhone();
-        this.street = p.getAddress().getStreet();
-        this.zip = p.getAddress().getZip();
-        this.city = p.getAddress().getCity();
-    }
+//    public PersonDTO(Person p) {
+//        this.firstName = p.getFirstName();
+//        this.lastName = p.getLastName();
+//        this.phone = p.getPhone();
+//        this.street = p.getAddress().getStreet();
+//        this.zip = p.getAddress().getZip();
+//        this.city = p.getAddress().getCity();
+//    }
 
     public PersonDTO(String firstName, String lastName, String phone, String street, String zip, String city) {
         this.firstName = firstName;

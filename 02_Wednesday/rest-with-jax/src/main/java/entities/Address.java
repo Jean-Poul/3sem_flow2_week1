@@ -1,13 +1,15 @@
-
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -25,9 +27,12 @@ public class Address implements Serializable {
     private String street;
     private String zip;
     private String city;
-    
-    @OneToOne(fetch=FetchType.LAZY, mappedBy = "address")
+
+    @OneToOne(fetch=FetchType.LAZY, mappedBy = "address", cascade = CascadeType.ALL)
     private Person person;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "address", cascade = CascadeType.PERSIST)
+    private List<Person> persons;
+    
 
     public Address() {
     }
@@ -77,5 +82,18 @@ public class Address implements Serializable {
     public void setPerson(Person person) {
         this.person = person;
     }
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+    
+    public void addPerson(Person person) {
+        this.persons.add(person);
+        if (person != null) {
+            person.setAddress(this);
+        }
+    }
+    
+
 
 }

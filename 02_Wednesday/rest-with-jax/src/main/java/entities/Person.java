@@ -2,12 +2,14 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
@@ -17,11 +19,10 @@ import javax.persistence.Temporal;
  *
  * @author jplm
  */
-
 @Entity
 @NamedQueries({
-@NamedQuery(name = "Person.deleteAllRows", query = "DELETE from Person"),
-@NamedQuery(name = "Person.getAllRows", query = "SELECT p from Person p")})
+    @NamedQuery(name = "Person.deleteAllRows", query = "DELETE from Person"),
+    @NamedQuery(name = "Person.getAllRows", query = "SELECT p from Person p")})
 public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,9 +36,10 @@ public class Person implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date created;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date lastEdited; 
-    
-    @OneToOne(cascade = CascadeType.ALL)
+    private Date lastEdited;
+
+    //@OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Address address;
 
     public Person() {
@@ -111,8 +113,5 @@ public class Person implements Serializable {
             address.setPerson(this);
         }
     }
-    
-    
-    
-    
+
 }
