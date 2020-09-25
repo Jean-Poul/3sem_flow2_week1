@@ -9,8 +9,8 @@
 
 ##### NOTE: 
 - there are two branches master and developer.
-- master contains wednesday and friday assigntment
-- developer contains friday assigntment
+- master contains wednesday and friday assignment
+- developer contains friday assignment
 
 ###### Tuesday: 
 - JPA relations + extra assignment <br/>
