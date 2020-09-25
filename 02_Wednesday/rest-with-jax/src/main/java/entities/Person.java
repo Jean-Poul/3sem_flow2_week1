@@ -12,7 +12,7 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 
 @Entity

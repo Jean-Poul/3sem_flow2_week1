@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 
 

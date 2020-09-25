@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 public class PersonDTO {
 

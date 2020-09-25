@@ -12,7 +12,7 @@ import exceptions.PersonNotFoundException;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 public interface IPersonFacade {
 

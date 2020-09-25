@@ -7,7 +7,7 @@ package dto;
 
 /**
  *
- * @author Amazingh0rse
+ * @author jplm
  */
 public class ExceptionDTO{
 
