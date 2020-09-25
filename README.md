@@ -10,22 +10,22 @@
 Every assignment has been made and working. 
 
 ###### Tuesday: 
-- JPA relations + extra assignment
+- JPA relations + extra assignment <br/>
 https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/01_Tuesday
 - (Comments missing)
 
 ###### Wednesday: 
 - REST with JAX RS part 1
-- REST with JAX RS part 2
+- REST with JAX RS part 2 <br/>
 https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/02_Wednesday/rest-with-jax
 - (Comments missing)
 
 ###### Thursday: 
-- Working with Postman
+- Working with Postman <br/>
 https://github.com/Jean-Poul/3sem_flow2_week1/tree/master/03_Thursday
 - (Comments missing)
 
 ###### Friday: 
-- Working with Postman
+- Working with Postman <br/>
 LINK MISSING
 - (Comments missing)
