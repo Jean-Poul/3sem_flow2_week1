@@ -1,11 +1,13 @@
 package rest;
 
+import dto.PersonDTO;
 import entities.Person;
 import utils.EMF_Creator;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 import io.restassured.parsing.Parser;
 import java.net.URI;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.core.UriBuilder;
@@ -13,6 +15,8 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.util.HttpStatus;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,7 +29,7 @@ public class PersonResourceTest {
 
     private static final int SERVER_PORT = 7777;
     private static final String SERVER_URL = "http://localhost/api";
-    private static Person r1,r2;
+    private static Person p1, p2;
     
     static final URI BASE_URI = UriBuilder.fromUri(SERVER_URL).port(SERVER_PORT).build();
     private static HttpServer httpServer;
@@ -62,13 +66,13 @@ public class PersonResourceTest {
     @BeforeEach
     public void setUp() {
         EntityManager em = emf.createEntityManager();
-        r1 = new Person("Kurt","Wonnegut","1234");
-        r2 = new Person("Jønke","bbb","6666");
+        p1 = new Person("Kurt","Wonnegut","1234");
+        p2 = new Person("Jønke","bbb","6666");
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Person.deleteAllRows").executeUpdate();
-            em.persist(r1);
-            em.persist(r2); 
+            em.persist(p1);
+            em.persist(p2); 
             em.getTransaction().commit();
         } finally { 
             em.close();
@@ -100,5 +104,21 @@ public class PersonResourceTest {
         .assertThat()
         .statusCode(HttpStatus.OK_200.getStatusCode())
         .body("count", equalTo(2));   
+    }
+    
+        @Test
+    public void getAllPersons() {
+        List<PersonDTO> personsDTOs;
+
+        personsDTOs = given()
+                .contentType("application/jason")
+                .when()
+                .get("/person/all")
+                .then()
+                .extract().body().jsonPath().getList("all", PersonDTO.class);
+        
+        PersonDTO p1DTO = new PersonDTO(p1);
+        PersonDTO p2DTO = new PersonDTO(p2);
+        assertThat(personsDTOs, containsInAnyOrder(p1DTO, p2DTO));
     }
 }
