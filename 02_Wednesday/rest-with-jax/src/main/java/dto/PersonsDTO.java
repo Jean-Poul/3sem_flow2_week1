@@ -22,6 +22,16 @@ public class PersonsDTO {
         });
     }
 
+    public List<PersonDTO> getAll() {
+        return all;
+    }
+
+    public void setAll(List<PersonDTO> all) {
+        this.all = all;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 7;

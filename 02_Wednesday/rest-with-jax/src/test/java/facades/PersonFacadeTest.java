@@ -11,6 +11,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import static org.hamcrest.MatcherAssert.assertThat;
 import org.hamcrest.Matchers;
+import static org.hamcrest.Matchers.everyItem;
+import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,7 +26,7 @@ public class PersonFacadeTest {
 
     private static EntityManagerFactory emf;
     private static PersonFacade facade;
-    
+
     private Person p1;
     private Person p2;
 
@@ -73,25 +75,27 @@ public class PersonFacadeTest {
     @Test
     public void testGetAllPersons() {
         PersonsDTO personsDTO = facade.getAllPersons();
-        
-        assertEquals(facade.getAllPersons().equals(personsDTO), personsDTO.equals(personsDTO));
+        List<PersonDTO> list = personsDTO.getAll();
+        assertThat(list, everyItem(Matchers.hasProperty("lastName")));
+        assertThat(list, Matchers.hasItems(Matchers.<PersonDTO>hasProperty("firstName", is("Kurt")),
+                Matchers.<PersonDTO>hasProperty("firstName", is("Jønke"))
+        )
+        );
+        //assertEquals(facade.getAllPersons().equals(personsDTO), personsDTO.equals(personsDTO));
     }
-    
+
     @Test
     public void testGetPersonById() throws PersonNotFoundException {
-        
+
         PersonDTO personDTO = facade.getPerson(p1.getId());
         assertEquals("Kurt", personDTO.getFirstName());
-        
+
     }
-    
+
     @Test
     public void testAddPerson() throws MissingInputException {
-        PersonDTO person = facade.addPerson("J-P", "L-M", "1234");
-        PersonsDTO list = facade.getAllPersons();
-        List<PersonsDTO> k = (List<PersonsDTO>) list;
-        assertEquals(3, k.size());
-        
+        facade.addPerson("J-P", "L-M", "1234");
+        assertEquals(3, facade.getPersonFacadeCount());
     }
 
 }
